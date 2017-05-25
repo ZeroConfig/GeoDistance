@@ -1,0 +1,36 @@
+{
+  "name": "zero-config/geo-distance",
+  "description": "Calculate the distance between coordinates.",
+  "keywords": ["geo", "latitude", "longitude", "distance", "earth", "mars"],
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Jan-Marten de Boer",
+      "role": "developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.0",
+    "nmarfurt/measurements": "^1.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "ZeroConfig\\GeoDistance\\": "src"
+    },
+    "files": ["src/functions.php"]
+  },
+  "archive": {
+    "exclude": [
+      ".gitignore",
+      "phpunit.xml",
+      "example.php",
+      "tests"
+    ]
+  }
+}
