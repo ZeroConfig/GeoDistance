@@ -5,7 +5,7 @@ Calculate the distance between coordinates.
 # Installation
 
 ```
-composer require hylianshield/geolocation
+composer require zero-config/geo-distance
 ```
 
 # Procedural approach
