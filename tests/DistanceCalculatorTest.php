@@ -2,9 +2,13 @@
 
 namespace ZeroConfig\GeoDistance\Tests;
 
+use Measurements\Exceptions\UnitException;
 use Measurements\Measurement;
+use Measurements\Quantities\Angle;
 use Measurements\Quantities\Length;
+use Measurements\Units\UnitAngle;
 use Measurements\Units\UnitLength;
+use PHPUnit_Framework_MockObject_MockObject;
 use ZeroConfig\GeoDistance\DistanceCalculator;
 use PHPUnit\Framework\TestCase;
 use ZeroConfig\GeoDistance\PositionInterface;
@@ -19,10 +23,13 @@ class DistanceCalculatorTest extends TestCase
      * @return void
      * @covers ::calculate
      * @covers ::__construct
+     * @covers ::calculateRadianLength
+     * @covers ::getRadianValue
+     * @throws UnitException When part of the angle is incalculable.
      */
     public function testCalculation()
     {
-        /** @var SphereInterface|\PHPUnit_Framework_MockObject_MockObject $sphere */
+        /** @var SphereInterface|PHPUnit_Framework_MockObject_MockObject $sphere */
         $sphere     = $this->createMock(SphereInterface::class);
         $calculator = new DistanceCalculator($sphere);
 
@@ -34,7 +41,21 @@ class DistanceCalculatorTest extends TestCase
         /** @var PositionInterface $end */
         $end = $this->createMock(PositionInterface::class);
 
-        /** @var Length|\PHPUnit_Framework_MockObject_MockObject $radius */
+        $angle = new Angle(1, UnitAngle::degrees());
+
+        /** @var PositionInterface|PHPUnit_Framework_MockObject_MockObject $position */
+        foreach ([$start, $end] as $position) {
+            $position
+                ->expects(self::any())
+                ->method(
+                    self::matchesRegularExpression(
+                        '/^get(Lat|Lon)/'
+                    )
+                )
+                ->willReturn($angle);
+        }
+
+        /** @var Length|PHPUnit_Framework_MockObject_MockObject $radius */
         $radius = $this->createMock(Length::class);
 
         $radius
