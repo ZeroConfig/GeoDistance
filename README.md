@@ -2,6 +2,8 @@
 
 Calculate the distance between coordinates.
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/?branch=master)
+
 # Installation
 
 ```
