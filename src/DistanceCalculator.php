@@ -38,12 +38,12 @@ class DistanceCalculator implements DistanceCalculatorInterface
         PositionInterface $start,
         PositionInterface $end
     ): Measurement {
-        $radians        = UnitAngle::radians();
+        $radians = UnitAngle::radians();
 
-        $startLatitude  = $start->getLatitude()->convertTo($radians)->value();
-        $endLatitude    = $end->getLatitude()->convertTo($radians)->value();
+        $startLatitude = $start->getLatitude()->convertTo($radians)->value();
+        $endLatitude   = $end->getLatitude()->convertTo($radians)->value();
 
-        $deltaLatitude  = $start
+        $deltaLatitude = $start
             ->getLatitude()
             ->subtract($end->getLatitude())
             ->convertTo($radians)

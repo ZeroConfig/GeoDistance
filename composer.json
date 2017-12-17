@@ -1,36 +1,59 @@
 {
-  "name": "zero-config/geo-distance",
-  "description": "Calculate the distance between coordinates.",
-  "keywords": ["geo", "latitude", "longitude", "distance", "earth", "mars"],
-  "type": "library",
-  "license": "Apache-2.0",
-  "authors": [
-    {
-      "name": "Jan-Marten de Boer",
-      "role": "developer"
-    }
-  ],
-  "minimum-stability": "stable",
-  "prefer-stable": true,
-  "require": {
-    "php": "^7.0",
-    "nmarfurt/measurements": "^1.2.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "@stable"
-  },
-  "autoload": {
-    "psr-4": {
-      "ZeroConfig\\GeoDistance\\": "src"
+    "name": "zero-config/geo-distance",
+    "description": "Calculate the distance between coordinates.",
+    "keywords": [
+        "geo",
+        "latitude",
+        "longitude",
+        "distance",
+        "earth",
+        "mars"
+    ],
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Jan-Marten de Boer",
+            "role": "developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.0",
+        "nmarfurt/measurements": "^1.2.0"
     },
-    "files": ["src/functions.php"]
-  },
-  "archive": {
-    "exclude": [
-      ".gitignore",
-      "phpunit.xml",
-      "example.php",
-      "tests"
-    ]
-  }
+    "require-dev": {
+        "phpunit/phpunit": "@stable",
+        "mediact/testing-suite": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZeroConfig\\GeoDistance\\": "src"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZeroConfig\\GeoDistance\\Tests\\": "tests"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "/.gitignore",
+            "/phpunit.xml",
+            "/example.php",
+            "/tests",
+            "/phpmd.xml",
+            "/phpstan.neon",
+            "/phpcs.xml"
+        ]
+    },
+    "extra": {
+        "grumphp": {
+            "config-default-path": "vendor/mediact/testing-suite/config/default/grumphp.yml"
+        }
+    }
 }
