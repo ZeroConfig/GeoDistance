@@ -62,17 +62,13 @@ class DistanceCalculator implements DistanceCalculatorInterface
         PositionInterface $start,
         PositionInterface $end
     ): float {
-        $startLatitude = $this->getRadianValue($start->getLatitude());
-        $endLatitude   = $this->getRadianValue($end->getLatitude());
-
-        /** @noinspection PhpParamsInspection */
-        $deltaLatitude = $this->getRadianValue(
+        $startLatitude  = $this->getRadianValue($start->getLatitude());
+        $endLatitude    = $this->getRadianValue($end->getLatitude());
+        $deltaLatitude  = $this->getRadianValue(
             $start
                 ->getLatitude()
                 ->subtract($end->getLatitude())
         );
-
-        /** @noinspection PhpParamsInspection */
         $deltaLongitude = $this->getRadianValue(
             $start
                 ->getLongitude()
