@@ -25,6 +25,7 @@ class DistanceCalculatorTest extends TestCase
      * @covers ::__construct
      * @covers ::calculateRadianLength
      * @covers ::getRadianValue
+     * @covers ::calculateHaversineDistance
      * @throws UnitException When part of the angle is incalculable.
      */
     public function testCalculation()

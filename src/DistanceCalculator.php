@@ -4,7 +4,6 @@ namespace ZeroConfig\GeoDistance;
 
 use Measurements\Exceptions\UnitException;
 use Measurements\Measurement;
-use Measurements\Quantities\Angle;
 use Measurements\Quantities\Length;
 use Measurements\Units\UnitAngle;
 use Measurements\Units\UnitLength;
@@ -62,19 +61,38 @@ class DistanceCalculator implements DistanceCalculatorInterface
         PositionInterface $start,
         PositionInterface $end
     ): float {
-        $startLatitude  = $this->getRadianValue($start->getLatitude());
-        $endLatitude    = $this->getRadianValue($end->getLatitude());
-        $deltaLatitude  = $this->getRadianValue(
-            $start
-                ->getLatitude()
-                ->subtract($end->getLatitude())
+        return $this->calculateHaversineDistance(
+            $this->getRadianValue($start->getLatitude()),
+            $this->getRadianValue($end->getLatitude()),
+            $this->getRadianValue(
+                $start
+                    ->getLatitude()
+                    ->subtract($end->getLatitude())
+            ),
+            $this->getRadianValue(
+                $start
+                    ->getLongitude()
+                    ->subtract($end->getLongitude())
+            )
         );
-        $deltaLongitude = $this->getRadianValue(
-            $start
-                ->getLongitude()
-                ->subtract($end->getLongitude())
-        );
+    }
 
+    /**
+     * Calculate the haversine distance.
+     *
+     * @param float $startLatitude
+     * @param float $endLatitude
+     * @param float $deltaLatitude
+     * @param float $deltaLongitude
+     *
+     * @return float
+     */
+    private function calculateHaversineDistance(
+        float $startLatitude,
+        float $endLatitude,
+        float $deltaLatitude,
+        float $deltaLongitude
+    ): float {
         return asin(
             sqrt(
                 pow(
