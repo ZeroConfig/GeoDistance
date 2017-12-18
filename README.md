@@ -2,7 +2,9 @@
 
 Calculate the distance between coordinates.
 
+[![Build Status](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ZeroConfig/GeoDistance/?branch=master)
 
 # Installation
 
